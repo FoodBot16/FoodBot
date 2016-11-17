@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.foodbot.mapper.ChatMapper">
+
+	<insert id="create">
+		insert into tbl_chat (cno, uid, content) values
+		(#{cno},#{uid},#{content})
+	</insert>
+
+    
+	<select id="read" resultType="ChatVO">
+		select
+		cno, uid, content
+		from
+		tbl_chat
+		where uid = #{uid}
+	</select>
+
+
+	<delete id="delete">
+		delete from tbl_chat where uid= #{uid}
+	</delete>
+
+	
+</mapper>

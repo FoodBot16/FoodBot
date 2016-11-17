@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.foodbot.mapper.FoodMapper">
+  <insert id="create">
+    insert into tbl_foodinfo (fcode,fname,ingredset) values
+    (#{fcode},#{fname},#{ingredset})
+  </insert>
+  
+  <insert id="createIngred">
+    insert into tbl_ingredient (ingred_code,ingred) values
+    (#{ingred_code},#{ingred})
+  </insert>
+  
+   <insert id="createTaste">
+    insert into tbl_taste (taste_code,taste) values
+    (#{taste_code},#{taste})
+  </insert>
+  
+  <insert id="createMorp">
+    insert into tbl_morp (morp_code,morp) values
+    (#{morp_code},#{morp})
+  </insert>
+  
+  <!--음식명 조건으로 read -->
+  <select id="readFname" resultType="FoodVO">
+    select
+    *
+    from
+    tbl_foodinfo
+    where fname = #{fname}
+  </select>
+  
+  <!--재료명 조건으로 read -->
+  <select id="readRecipe" resultType="FoodVO">
+    select
+    *
+    from
+    tbl_foodinfo
+    where  fname like CONCAT('%',#{fname},'%') OR
+           ingredset like CONCAT('%',#{ingredset},'%') OR
+           tasteset like CONCAT('%',#{tasteset},'%')
+  </select>
+  
+   <!--초기 학습을 위한 레시피 read -->
+  <select id="readRecipeAll" resultType="FoodVO">
+    select
+    *
+    from
+    tbl_foodinfo
+  </select>
+
+  <!--형태소(nng) 조건으로 read -->
+  <select id="readNNGOne" resultType="FoodVO">
+    select
+    *
+    from
+    tbl_nng
+    where nng = #{nng}
+  </select>
+  
+  <!--형태소(나머지 모두) 조건으로 read -->
+  <select id="readMorpOne" resultType="morpVO">
+    select
+    *
+    from
+    tbl_morp
+    where morp = #{morp}
+  </select>
+    
+  <!-- 재료 조건으로 read -->
+  <select id="readIngredOne" resultType="IngredVO">
+    select
+    *
+    from
+    tbl_ingredient
+    where ingred = #{ingred}
+  </select>
+  
+   <!-- 맛 조건으로 read -->
+  <select id="readTasteOne" resultType="TasteVO">
+    select
+    *
+    from
+    tbl_taste
+    where taste = #{taste}
+  </select>
+
+  <!-- 모든 제료 read -->
+  <select id="readIngredAll" resultType="IngredVO">
+    select
+    *
+    from
+    tbl_ingredient
+  </select>
+  
+  <!-- 모든 맛 read -->
+  <select id="readTasteAll" resultType="TasteVO">
+    select
+    *
+    from
+    tbl_taste
+  </select>
+  
+  <!-- 모든 음식 read -->
+  <select id="readFoodAll" resultType="FoodVO">
+    select
+    *
+    from
+    tbl_foodinfo
+  </select>
+
+</mapper>
