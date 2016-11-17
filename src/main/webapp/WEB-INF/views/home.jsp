@@ -193,7 +193,8 @@
 
 	</div>
 	<%} %>
-
+	
+	<!-- 
 	<section class="bg-primary" id="about">
 		<div class="container">
 			<div class="row">
@@ -258,7 +259,6 @@
 			</div>
 		</div>
 	</section>
-	
 	
 	
 	 <section class="no-padding" id="portfolio">
@@ -358,6 +358,7 @@
         </div>
     </section>
 
+
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
@@ -367,7 +368,8 @@
         </div>
     </aside>
 
-
+ 
+-->
     <section id="contact">
         <div class="container">
             <div class="row">
