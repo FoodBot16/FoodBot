@@ -106,9 +106,6 @@ public class SearchBoardController {
 		attr.addFlashAttribute("result","success");
 		logger.info("modifypage post .......");
 		
-		
 		return "redirect:/sboard/list";
-		
 	}
-	
 }

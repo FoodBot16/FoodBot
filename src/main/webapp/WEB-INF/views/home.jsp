@@ -94,10 +94,10 @@
 				  <% if(session.getAttribute("login") != null) { %>
 				    <li><a class="page-scroll" href="member/logout">LogOut</a></li>
 				  <%} %>
-					<li><a class="page-scroll" href="#about">About</a></li>
+					<li><a class="" href="/about/intro">About</a></li>
 					<li><a class="page-scroll" href="#services">채팅</a></li>
 					<li><a class="" href="/myinfo/info">내정보</a></li>
-					<li><a class="page-scroll" href="#contact">문의</a></li>
+					<li><a class="page-scroll" href="/help/qna">문의</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -114,8 +114,8 @@
 		<li><img src="<%=cp%>/resources/img/header4.jpg" /></li>
 	</ul>
 
-
-<% if(session.getAttribute("login") == null) { %>
+	<!-- 로그인하지 않은 경우 -->
+	<% if(session.getAttribute("login") == null) { %>
 	<div class="login">
 		<section class="logincontainer">
 			<article class="half">
@@ -193,75 +193,21 @@
 
 	</div>
 	<%} %>
-	
-	<!-- 
-	<section class="bg-primary" id="about">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading">We've got what you need!</h2>
-					<hr class="light">
-					<p class="text-faded">Start Bootstrap has everything you need
-						to get your new website up and running in no time! All of the
-						templates and themes on Start Bootstrap are open source, free to
-						download, and easy to use. No strings attached!</p>
-					<a href="#services"
-						class="page-scroll btn btn-default btn-xl sr-button">Get
-						Started!</a>
-				</div>
-			</div>
-		</div>
-	</section>
+	 <!-- End of Login popup -->
+	<input type="text" onKeyPress="hitEnterKey(event)">
 
-	<section id="services">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">At Your Service</h2>
-					<hr class="primary">
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box">
-						<i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-						<h3>Sturdy Templates</h3>
-						<p class="text-muted">Our templates are updated regularly so
-							they don't break.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box">
-						<i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-						<h3>Ready to Ship</h3>
-						<p class="text-muted">You can use this theme as is, or you can
-							make changes!</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box">
-						<i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-						<h3>Up to Date</h3>
-						<p class="text-muted">We update dependencies to keep things
-							fresh.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box">
-						<i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-						<h3>Made with Love</h3>
-						<p class="text-muted">You have to make your websites with love
-							these days!</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	
-	 <section class="no-padding" id="portfolio">
+	<script type="text/javascript">
+	function hitEnterKey() {
+		if(window.event.KeyCode == 13){
+			href.location = '#contact';
+		}
+		return;
+	}
+	onKeyDown="hitEnterKey();"
+	</script>
+
+	<!-- Start of Project page --><!-- 
+	<section class="no-padding" id="portfolio">
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
                 <div class="col-lg-4 col-sm-6">
@@ -357,9 +303,9 @@
             </div>
         </div>
     </section>
+ -->	<!-- End of Project page  -->
 
-
-    <aside class="bg-dark">
+<!--     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
                 <h2>Free Download at Start Bootstrap!</h2>
@@ -367,28 +313,10 @@
             </div>
         </div>
     </aside>
-
+ -->
  
--->
     <section id="contact">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
-                    <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                    
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
-                </div>
-                
-            </div>
             <div class="board"></div>
             <div class="chat"></div>
             <div class="chat2"></div>
@@ -427,10 +355,17 @@
 
 	<script src="<%=cp%>/resources/js/jquery.popupoverlay.js"></script>
 
+	<!-- 키를 입력하면 #contact로 이동  -->
+	<script>
+	$('body').keydown(function(event){
+		console.log(event.keyCode);
+		if(event.keyCode == '67'){
+			location.href ='#contact';
+		};			
+	});
+	</script>
 
 	<script>
-  
-  
     var windowWidth = $( window ).width();
     var windowHeight = $( window ).height();
     $( window ).resize(function() {
@@ -458,8 +393,6 @@
   </script>
 	<script>
    
-
-        
    $(document).ready(function(){
     $('.bxslider').bxSlider({
     	  auto: true,
@@ -505,7 +438,7 @@
 
     	  });
 
-
+		// User Registration & Verification
     	  $("#Register_email").keyup(function(){
 
     	    var email = $("#Register_email").val();

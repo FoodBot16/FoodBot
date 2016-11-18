@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@include file="../include/header.jsp"%>
+<%@include file="../../include/header.jsp"%>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <!-- Main content -->
@@ -351,4 +351,4 @@ $(document).ready(function(){
 </script>
 
 
-<%@include file="../include/footer.jsp"%>
+<%@include file="../../include/footer.jsp"%>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@ include file='../include/header.jsp' %>  --%>
 <%@ page session="false"%>
 <% String cp = request.getContextPath(); %>
 <% HttpSession session = request.getSession(); %>
@@ -15,7 +16,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Creative - Start Bootstrap Theme</title>
+<title>내 정보</title>
 <!-- Bootstrap Core CSS -->
 <link href="<%=cp%>/resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -24,7 +25,6 @@
 <link
 	href="<%=cp%>/resources/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-
 
 <!-- Plugin CSS -->
 <link href="<%=cp%>/resources/vendor/magnific-popup/magnific-popup.css"
@@ -40,7 +40,6 @@
 <link rel="stylesheet" href="<%=cp%>/resources/css/login-form.css" />
 <link rel="stylesheet" href="<%=cp%>/resources/css/login.css" />
 <link rel="stylesheet" href="<%=cp%>/resources/css/bootstrap.min.css" />
-
 
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -63,7 +62,7 @@
 
 <body id="page-top">
 
-	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+ 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -72,7 +71,7 @@
 					<span class="sr-only">Toggle navigation</span> Menu <i
 						class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top">Food Bot</a>
+				<a class="navbar-brand page-scroll" href="/">Food Bot</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -82,17 +81,16 @@
 					<% if(session.getAttribute("login") != null) { %>
 					<li><a class="page-scroll" href="member/logout">LogOut</a></li>
 					<%} %>
-					<li><a class="page-scroll" href="#about">About</a></li>
-					<li><a class="page-scroll" href="#services">채팅</a></li>
+					<li><a class="" href="/about/intro">About</a></li>
+					<li><a class="" href="">채팅</a></li>
 					<li><a class="" href="/myinfo/info">내정보</a></li>
-					<li><a class="page-scroll" href="#contact">문의</a></li>
+					<li><a class="" href="/help/qna">문의</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-
 
 	<img src="<%=cp%>/resources/img/header4.jpg" width="100%" height="70%" />
 	<div class="infotitle">
