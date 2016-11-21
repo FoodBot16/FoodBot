@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<%@ include file="../include/header.jsp" %>
 <%	String cp = request.getContextPath();%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,7 +9,13 @@
 <title>문의 게시판</title>
 <link href="<%=cp%>/resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(function(){
+	$("#header").load("/include/header");
+	$("#footer").load("/include/footer");
+});
+</script>
 <!-- Custom Fonts -->
 <link
 	href="<%=cp%>/resources/vendor/font-awesome/css/font-awesome.min.css"
@@ -28,7 +33,9 @@
 <link rel="stylesheet" href="<%=cp%>/resources/css/bootstrap.min.css" />
 </head>
 <body>
-
+	<!-- Load header -->
+	<div id="header"></div>
+	
 	<section id="contact">
 		<div class="container">
 			<div class="board"></div>
@@ -71,5 +78,8 @@
 			}
 		});
 	</script>
+	
+	<!-- Load footer -->
+	<div id="footer"></div>
 </body>
 </html>

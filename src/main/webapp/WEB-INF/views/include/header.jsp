@@ -9,59 +9,39 @@
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
-<!-- Bootstrap 3.3.4 -->
-<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<!-- Font Awesome Icons -->
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css" />
-<!-- Ionicons -->
-<link
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
-	rel="stylesheet" type="text/css" />
-<!-- Theme style -->
-<link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet"
-	type="text/css" />
-<!-- AdminLTE Skins. Choose a skin from the css/skins 
-         folder instead of downloading all of them to reduce the load. -->
-<link href="/resources/dist/css/skins/_all-skins.min.css"
-	rel="stylesheet" type="text/css" />
-
 <!-- Bootstrap Core CSS -->
 <link href="/resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="/resources/vendor/font-awesome/css/font-awesome.min.css"
+<link
+	href="/resources/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 
 <!-- Plugin CSS -->
 <link href="/resources/vendor/magnific-popup/magnific-popup.css"
 	rel="stylesheet">
 
-<!-- bxSlider CSS file -->
-<link href="/resources/css/jquery.bxslider.css" rel="stylesheet" />
-
 <!-- Theme CSS -->
 <link href="/resources/css/creative.min.css" rel="stylesheet">
 
-<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/resources/css/login-form.css" />
+<link rel="stylesheet" href="/resources/css/login.css" />
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
+
+<style>
+#mainNav {
+	color: black;
+}
+
+</style>
 </head>
 <!-- jQuery 2.1.4 -->
 <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
-<body id="page-top">
+<body>
 
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
@@ -96,4 +76,26 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
+		<!-- jQuery -->
+	<script src="/resources/vendor/jquery/jquery.min.js"></script>
+
+	<script src="/resources/js/jquery-1.11.3.min.js"></script>
+	<script src="/resources/js/jquery-ui.min.js"></script>
+	<script src="/resources/js/check.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src="/resources/vendor/scrollreveal/scrollreveal.min.js"></script>
+	<script
+		src="/resources/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+	<!-- Theme JavaScript -->
+	<script src="/resources/js/creative.min.js"></script>
+	<script
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	
 </body>

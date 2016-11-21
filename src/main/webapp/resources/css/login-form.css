@@ -1,6 +1,11 @@
 <style rel="stylesheet">
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+@font-face{
+	font-family:'Jeju Gothic'; 
+	src:url('/fonts/JEJUGOTHIC.TTF');
+	src:url('/fonts/JEJUGOTHIC.WOFF') format('woff');
+}
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -34,8 +39,9 @@ body .logincontainer .half.bg {
   background-repeat: no-repeat;
 }
 body .logincontainer h1 {
-  font-size: 18px;
-  font-weight: 700;
+  font-family: 'Jeju Gothic';
+  font-size: 45px;
+  font-weight: 800;
   margin-bottom: 23px;
   text-align: center;
   text-indent: 6px;

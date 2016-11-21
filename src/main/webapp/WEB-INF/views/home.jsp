@@ -3,10 +3,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
-<% String cp = request.getContextPath(); %>
-<% HttpSession session = request.getSession(); %>
-<% MemberVO memberVO = (MemberVO)session.getAttribute("login"); %>
+<%
+	String cp = request.getContextPath();
+%>
+<%
+	HttpSession session = request.getSession();
+%>
+<%
+	MemberVO memberVO = (MemberVO) session.getAttribute("login");
+%>
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -18,6 +25,9 @@
 <meta name="author" content="">
 
 <title>FoodBot</title>
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
 <!-- Bootstrap Core CSS -->
 <link href="<%=cp%>/resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -62,19 +72,37 @@
 }
 
 .well {
+	min-width: 300px;
 	width: 30%;
+	max-width: 540px;
 	height: 500px;
 }
+
 .board {
-  position:relative;
-  left:-15%;
-  width : 130%;
+	position: relative;
+	left: -15%;
+	width: 130%;
 }
+
+#bg {
+	position: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+    -webkit-padding-start: 0;
+    height: 100%;
+    width:100%;
+}
+
+#bg img {
+	position: absolute;
+	z-index: 0;
+}
+
 </style>
 </head>
 
 <body id="page-top">
-
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -91,9 +119,13 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-				  <% if(session.getAttribute("login") != null) { %>
-				    <li><a class="page-scroll" href="member/logout">LogOut</a></li>
-				  <%} %>
+					<%
+						if (session.getAttribute("login") != null) {
+					%>
+					<li><a class="page-scroll" href="/member/logout">LogOut</a></li>
+					<%
+						}
+					%>
 					<li><a class="" href="/about/intro">About</a></li>
 					<li><a class="page-scroll" href="#services">채팅</a></li>
 					<li><a class="" href="/myinfo/info">내정보</a></li>
@@ -105,17 +137,14 @@
 		<!-- /.container-fluid -->
 	</nav>
 
-
-	<ul class="bxslider">
-		<li><img src="<%=cp%>/resources/img/header4.jpg" />
-			<h2>채팅</h2></li>
-		<li><img src="<%=cp%>/resources/img/header4.jpg" />
-			<h2>내정보</h2></li>
-		<li><img src="<%=cp%>/resources/img/header4.jpg" /></li>
-	</ul>
+	<div id="bg">
+ 		<img src="<%=cp%>/resources/img/banner/2.jpg" alt="" width="100%"/>
+	</div>
 
 	<!-- 로그인하지 않은 경우 -->
-	<% if(session.getAttribute("login") == null) { %>
+	<%
+		if (session.getAttribute("login") == null) {
+	%>
 	<div class="login">
 		<section class="logincontainer">
 			<article class="half">
@@ -151,13 +180,14 @@
 	<div id="fadeandscale" class="well">
 		<h1>Sign Up!</h1>
 
-		<form action="/member/regist" method="post" class="form form--registration">
+		<form action="/member/regist" method="post"
+			class="form form--registration">
 
 			<div class="form__field1">
 				<label class="fontawesome-envelope-alt" for="login__username"><span
-					class="hidden">Email</span></label> <input id="Register_email"
-					name="uid" type="text" class="form__input" placeholder="Email"
-					required> <span id="mail_check" class="check_image"></span>
+					class="hidden">Email</span></label> <input id="Register_email" name="uid"
+					type="text" class="form__input" placeholder="Email" required>
+				<span id="mail_check" class="check_image"></span>
 			</div>
 			<div class="form__field1">
 				<label class="fontawesome-user" for="login__username"><span
@@ -192,141 +222,23 @@
 		</form>
 
 	</div>
-	<%} %>
-	 <!-- End of Login popup -->
-	<input type="text" onKeyPress="hitEnterKey(event)">
-
-	<script type="text/javascript">
-	function hitEnterKey() {
-		if(window.event.KeyCode == 13){
-			href.location = '#contact';
+	<%
 		}
-		return;
-	}
-	onKeyDown="hitEnterKey();"
-	</script>
+	%>
+	<!-- End of Login popup -->
 
-	<!-- Start of Project page --><!-- 
-	<section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter popup-gallery">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="<%=cp%>/resources/img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                        <img src="<%=cp%>/resources/img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="<%=cp%>/resources/img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                        <img src="<%=cp%>/resources/img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
- -->	<!-- End of Project page  -->
-
-<!--     <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-                <h2>Free Download at Start Bootstrap!</h2>
-                <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Download Now!</a>
-            </div>
-        </div>
-    </aside>
+<!-- 	<section id="contact">
+		<div class="container">
+			<div class="board"></div>
+			<div class="chat"></div>
+			<div id="chatbox" class="chat2"></div>
+		</div>
+	</section>
  -->
- 
-    <section id="contact">
-        <div class="container">
-            <div class="board"></div>
-            <div class="chat"></div>
-            <div class="chat2"></div>
-        </div>
-    </section>
-    
- 
-
-
-
+	
+	<!-- Load footer -->
+	<div id="footer"></div>
+	
 	<!-- jQuery -->
 	<script src="<%=cp%>/resources/vendor/jquery/jquery.min.js"></script>
 
@@ -356,92 +268,57 @@
 	<script src="<%=cp%>/resources/js/jquery.popupoverlay.js"></script>
 
 	<!-- 키를 입력하면 #contact로 이동  -->
-	<script>
-	$('body').keydown(function(event){
-		console.log(event.keyCode);
-		if(event.keyCode == '67'){
-			location.href ='#contact';
-		};			
-	});
-	</script>
+<!--<script>
+		$('body').keydown(function(event){
+			console.log(event.keyCode);
+			if(event.keyCode == '67'){
+				location.href ='#chatbox';
+			};			
+		});
+	</script> -->
 
 	<script>
     var windowWidth = $( window ).width();
     var windowHeight = $( window ).height();
     $( window ).resize(function() {
-        windowWidth = $( window ).width();
-        windowHeight = $( window ).height();
+		windowWidth = $( window ).width();
+		windowHeight = $( window ).height();
     });
-    
     
     var height = $(document).scrollTop();
     if(height < 50) {
-      $("body").css({'top':'0px'});
+		$("body").css({'top':'0px'});
     } else {
-      $("body").css({'top':'-160px'});
-    } 
+		$("body").css({'top':'-160px'});
+    }
     $(window).scroll(function() {
-        var height = $(document).scrollTop();
-        console.log(height);
+		var height = $(document).scrollTop();
+        /* console.log(height); */
         if(height < 50) {
-          $("body").css({'top':'0px'});
+			$("body").css({'top':'0px'});
         } else {
-          $("body").css({'top':'-160px'});
+			$("body").css({'top':'-160px'});
         }
     });
-    
-  </script>
+  	</script>
 	<script>
-   
-   $(document).ready(function(){
-    $('.bxslider').bxSlider({
-    	  auto: true,
-    	  autoControls: true
-    });
-    
-    
-    
-    $.ajax({
-        url:'sboard/simpleList',
-        success:function(result){
-          $('.board').html(result);
-      }
-    });
-  
-    // 채팅 로드
-    $.ajax({
-        url:'chat/chat-ws',
-        success:function(result){
-          console.log("result: " + result);
-          $('.chat').html(result);
-      }
-    });
-   /*
-    // 채팅 로드
-    $.ajax({
-        url:'chat/chatting',
-        success:function(result){
-          console.log("result: " + result);
-          $('.chat2').html(result);
-      }
-    });
-    */
-    	  $.fn.popup.defaults.pagecontainer = '.logincontainer';
+	$(document).ready(function(){
+ 
+    $.fn.popup.defaults.pagecontainer = '.logincontainer';
 
-    	    $('#basic').popup();
+    $('#basic').popup();
 
-    	  $('#fadeandscale').popup({
-    	    height:1000, 
-    	    width:800,
-    	    pagecontainer: '.logincontainer',
-    	    transition: 'all 0.5s'
+	$('#fadeandscale').popup({
+		height:1000, 
+		width:800,
+		pagecontainer: '.logincontainer',
+		transition: 'all 0.5s'
+	});
 
-    	  });
 
-		// User Registration & Verification
-    	  $("#Register_email").keyup(function(){
+	$("#Register_email").keyup(function(){
 
-    	    var email = $("#Register_email").val();
+		var email = $("#Register_email").val();
 
     	    if(email != 0)
     	    {
@@ -518,17 +395,14 @@
 
     	  });
 
-
+ 
     	  function isValidEmailAddress(emailAddress) {
     	    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
     	    return pattern.test(emailAddress);
     	  }
-
-    	
 });
     </script>
-    
-    
+	
 </body>
 
 </html>

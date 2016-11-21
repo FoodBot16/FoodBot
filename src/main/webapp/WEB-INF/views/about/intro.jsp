@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file='../include/header.jsp' %>    
 <% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -8,9 +7,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>프로그램 소개</title>
 
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(function(){
+	$("#header").load("/include/header");
+	$("#footer").load("/include/footer");
+});
+</script>
+
 </head>
 <body>
-
+	<!-- Load header -->
+	<div id="header"></div>
+	
 	<section class="bg-primary" id="about">
 		<div class="container">
 			<div class="row">
@@ -76,6 +85,8 @@
 		</div>
 	</section>
 	
-
+	<!-- Load footer -->
+	<div id="footer"></div>
+	
 </body>
 </html>

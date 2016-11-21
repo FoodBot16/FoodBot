@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%-- <%@ include file='../include/header.jsp' %>  --%>
 <%@ page session="false"%>
-<% String cp = request.getContextPath(); %>
+<% String cp = request.getContextPath();%>
 <% HttpSession session = request.getSession(); %>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +17,14 @@
 <meta name="author" content="">
 
 <title>내 정보</title>
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(function(){
+	$("#footer").load("/include/footer");
+});
+</script>
+
 <!-- Bootstrap Core CSS -->
 <link href="<%=cp%>/resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -34,22 +42,20 @@
 <link href="<%=cp%>/resources/css/creative.min.css" rel="stylesheet">
 
 <!-- bxSlider CSS file -->
-<link href="<%=cp%>/resources/css/jquery.bxslider.css" rel="stylesheet" />
+<%-- <link href="<%=cp%>/resources/css/jquery.bxslider.css" rel="stylesheet" /> --%>
 
-<link href="<%=cp%>/resources/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="<%=cp%>/resources/css/login-form.css" />
 <link rel="stylesheet" href="<%=cp%>/resources/css/login.css" />
 <link rel="stylesheet" href="<%=cp%>/resources/css/bootstrap.min.css" />
 
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 <style>
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+h1	{
+ 	font-family: 'Nanum Pen Script', serif;
+	font-size: 120px !important;
+}
 
 .infotitle {
 	position: absolute;
@@ -57,11 +63,24 @@
 	color: white;
 	top: 100px;  
 }
+
+.sidetab.fixed {
+	position: fixed;
+	top: 350px;
+	left: 0;
+	z-index: 10000;
+	-webkit-padding-start: 0;
+	margin-left: 10px;
+}
+
+.sidetab.fixed li {
+	list-style: none
+}
+
 </style>
 </head>
 
 <body id="page-top">
-
  	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -79,10 +98,10 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<% if(session.getAttribute("login") != null) { %>
-					<li><a class="page-scroll" href="member/logout">LogOut</a></li>
+					<li><a class="page-scroll" href="/member/logout">LogOut</a></li>
 					<%} %>
 					<li><a class="" href="/about/intro">About</a></li>
-					<li><a class="" href="">채팅</a></li>
+					<li><a class="" href="/">채팅</a></li>
 					<li><a class="" href="/myinfo/info">내정보</a></li>
 					<li><a class="" href="/help/qna">문의</a></li>
 				</ul>
@@ -92,17 +111,23 @@
 		<!-- /.container-fluid -->
 	</nav>
 
-	<img src="<%=cp%>/resources/img/header4.jpg" width="100%" height="70%" />
+	<ul class="sidetab fixed">
+		<li class="info"><a href="/info"><img alt="" src="/resources/img/icon/info.png" width="50px" height="50px"></a></li>
+		<li class="chart"><a href="/chart"><img alt="" src="/resources/img/icon/bars-chart.png" width="50px" height="50px"></a></li>
+		<li class="idle"><a href="/idle"><img alt="" src="/resources/img/icon/survey_g.png" width="50px" height="50px"></a></li>
+	</ul>
+
+	<img src="<%=cp%>/resources/img/banner/5.jpg" width="100%" height="70%" />
 	<div class="infotitle">
 		<section>
 			<h1>내 정보</h1>
 		</section>
 	</div>
 	
-
+<!-- 
   <nav id="mainNav" class="navbar">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
+      Brand and toggle get grouped for better mobile display
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed"
           data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -111,7 +136,7 @@
         </button>
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
+      Collect the nav links, forms, and other content for toggling
       <div class="collapse navbar-collapse"
         id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
@@ -122,12 +147,12 @@
           <li><a  href="#contact">설문2</a></li>
         </ul>
       </div>
-      <!-- /.navbar-collapse -->
+      /.navbar-collapse
     </div>
-    <!-- /.container-fluid -->
+    /.container-fluid
   </nav>
 
-
+ -->
 
 
 	<section id="contact">
@@ -180,26 +205,14 @@
 
 	<!-- Theme JavaScript -->
 	<script src="<%=cp%>/resources/js/creative.min.js"></script>
-	<script
-		src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<!-- bxSlider Javascript file -->
-	<script src="<%=cp%>/resources/js/jquery.bxslider.min.js"></script>
-	<script src="<%=cp%>/resources/js/jquery.bxslider.js"></script>
-
-	<script src="<%=cp%>/resources/js/jquery.popupoverlay.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 
 
-	<script>
-   
-
-        
-   $(document).ready(function(){
-
-
-      
-});
-    </script>
+    
+    <!-- Load footer -->
+	<div id="footer"></div>
+	
 </body>
 
 </html>
